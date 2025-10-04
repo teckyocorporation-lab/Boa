@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreras - Admin</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Gestión de Carreras</h1>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="choferes.html">Choferes</a>
+                <a href="carreras.html" class="active">Carreras</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="reportes.html">Reportes</a>
+                <a href="configuracion.html">Configuración</a>
+            </nav>
+        </header>
+        <main class="admin-main">
+            <div class="page-header">
+                <h2>Lista de Carreras</h2>
+                <button class="btn-primary" onclick="navigateTo('crear-carrera.html')">Crear Carrera</button>
+            </div>
+            <div class="filters">
+                <input type="text" id="searchCarrera" placeholder="Buscar carrera..." class="search-input">
+                <select id="statusFilter" class="filter-select">
+                    <option value="">Todos los estados</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="en_progreso">En Progreso</option>
+                    <option value="completada">Completada</option>
+                    <option value="cancelada">Cancelada</option>
+                </select>
+                <input type="date" id="dateFilter" class="filter-date">
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Chofer</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carrerasTableBody">
+                        <!-- Carreras data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>

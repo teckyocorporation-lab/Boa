@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial - Chofer</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="chofer-container">
+        <header class="chofer-header">
+            <h1>Historial de Carreras</h1>
+            <nav class="chofer-nav">
+                <a href="home.html">Inicio</a>
+                <a href="carreras-disponibles.html">Carreras Disponibles</a>
+                <a href="mis-carreras.html">Mis Carreras</a>
+                <a href="historial.html" class="active">Historial</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="notificaciones.html">Notificaciones</a>
+            </nav>
+        </header>
+        <main class="chofer-main">
+            <div class="page-header">
+                <h2>Historial Completo</h2>
+                <div class="header-actions">
+                    <button class="btn-secondary" onclick="exportarHistorial()">Exportar</button>
+                    <button class="btn-primary" onclick="refreshHistorial()">Actualizar</button>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <input type="text" id="searchHistorial" placeholder="Buscar en historial..." class="search-input">
+                <select id="statusFilter" class="filter-select">
+                    <option value="">Todos los estados</option>
+                    <option value="completada">Completadas</option>
+                    <option value="cancelada">Canceladas</option>
+                </select>
+                <input type="date" id="fechaInicio" class="filter-date" placeholder="Fecha inicio">
+                <input type="date" id="fechaFin" class="filter-date" placeholder="Fecha fin">
+            </div>
+            
+            <div class="historial-stats">
+                <div class="stat-card">
+                    <h3>Total Carreras</h3>
+                    <span class="stat-number" id="totalCarreras">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Ganancias Totales</h3>
+                    <span class="stat-number" id="gananciasTotales">$0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Calificación Promedio</h3>
+                    <span class="stat-number" id="calificacionPromedio">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Mejor Mes</h3>
+                    <span class="stat-number" id="mejorMes">-</span>
+                </div>
+            </div>
+            
+            <div class="historial-list" id="historialList">
+                <!-- Historial carreras will be loaded here -->
+            </div>
+            
+            <div class="pagination">
+                <button class="btn-secondary" onclick="loadPreviousPage()" id="prevBtn" disabled>Anterior</button>
+                <span id="pageInfo">Página 1 de 1</span>
+                <button class="btn-secondary" onclick="loadNextPage()" id="nextBtn" disabled>Siguiente</button>
+            </div>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>

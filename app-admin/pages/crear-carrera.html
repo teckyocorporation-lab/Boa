@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Carrera - Admin</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Crear Nueva Carrera</h1>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="choferes.html">Choferes</a>
+                <a href="carreras.html">Carreras</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="reportes.html">Reportes</a>
+                <a href="configuracion.html">Configuración</a>
+            </nav>
+        </header>
+        <main class="admin-main">
+            <div class="page-header">
+                <h2>Nueva Carrera</h2>
+                <button class="btn-secondary" onclick="navigateTo('carreras.html')">Volver a Carreras</button>
+            </div>
+            <form id="crearCarreraForm" class="form-container">
+                <div class="form-section">
+                    <h3>Información del Viaje</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="origen">Origen:</label>
+                            <input type="text" id="origen" name="origen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="destino">Destino:</label>
+                            <input type="text" id="destino" name="destino" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora">Hora:</label>
+                            <input type="time" id="hora" name="hora" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="precio">Precio:</label>
+                            <input type="number" id="precio" name="precio" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="distancia">Distancia (km):</label>
+                            <input type="number" id="distancia" name="distancia" step="0.1">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Asignación</h3>
+                    <div class="form-group">
+                        <label for="chofer">Chofer:</label>
+                        <select id="chofer" name="chofer" required>
+                            <option value="">Seleccionar chofer...</option>
+                            <!-- Choferes will be loaded here -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehiculo">Vehículo:</label>
+                        <select id="vehiculo" name="vehiculo" required>
+                            <option value="">Seleccionar vehículo...</option>
+                            <!-- Vehículos will be loaded here -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Información Adicional</h3>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones:</label>
+                        <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="navigateTo('carreras.html')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Crear Carrera</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>
