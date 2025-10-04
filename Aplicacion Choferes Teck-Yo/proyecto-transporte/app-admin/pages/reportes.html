@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Admin</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Reportes y Estadísticas</h1>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="choferes.html">Choferes</a>
+                <a href="carreras.html">Carreras</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="reportes.html" class="active">Reportes</a>
+                <a href="configuracion.html">Configuración</a>
+            </nav>
+        </header>
+        <main class="admin-main">
+            <div class="page-header">
+                <h2>Generar Reportes</h2>
+                <div class="header-actions">
+                    <button class="btn-primary" onclick="generarReporte()">Generar Reporte</button>
+                    <button class="btn-secondary" onclick="exportarDatos()">Exportar Datos</button>
+                </div>
+            </div>
+            <div class="report-filters">
+                <div class="filter-group">
+                    <label for="fechaInicio">Fecha Inicio:</label>
+                    <input type="date" id="fechaInicio" class="filter-date">
+                </div>
+                <div class="filter-group">
+                    <label for="fechaFin">Fecha Fin:</label>
+                    <input type="date" id="fechaFin" class="filter-date">
+                </div>
+                <div class="filter-group">
+                    <label for="tipoReporte">Tipo de Reporte:</label>
+                    <select id="tipoReporte" class="filter-select">
+                        <option value="carreras">Carreras</option>
+                        <option value="choferes">Choferes</option>
+                        <option value="vehiculos">Vehículos</option>
+                        <option value="ingresos">Ingresos</option>
+                    </select>
+                </div>
+            </div>
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>Carreras por Mes</h3>
+                    <canvas id="carrerasChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Ingresos por Mes</h3>
+                    <canvas id="ingresosChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Choferes más Activos</h3>
+                    <canvas id="choferesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Estado de Vehículos</h3>
+                    <canvas id="vehiculosChart"></canvas>
+                </div>
+            </div>
+            <div class="summary-stats">
+                <h3>Resumen Estadístico</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Carreras:</span>
+                        <span class="stat-value" id="totalCarreras">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Ingresos Totales:</span>
+                        <span class="stat-value" id="ingresosTotales">$0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Choferes Activos:</span>
+                        <span class="stat-value" id="choferesActivos">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Vehículos Disponibles:</span>
+                        <span class="stat-value" id="vehiculosDisponibles">0</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>

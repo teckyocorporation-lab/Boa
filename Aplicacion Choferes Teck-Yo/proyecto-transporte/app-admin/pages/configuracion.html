@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Admin</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Configuración del Sistema</h1>
+            <nav class="admin-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="choferes.html">Choferes</a>
+                <a href="carreras.html">Carreras</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="reportes.html">Reportes</a>
+                <a href="configuracion.html" class="active">Configuración</a>
+            </nav>
+        </header>
+        <main class="admin-main">
+            <div class="page-header">
+                <h2>Configuración General</h2>
+            </div>
+            <div class="config-sections">
+                <div class="config-section">
+                    <h3>Configuración de Precios</h3>
+                    <form id="preciosForm" class="config-form">
+                        <div class="form-group">
+                            <label for="precioBase">Precio Base por Kilómetro:</label>
+                            <input type="number" id="precioBase" name="precioBase" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="precioMinimo">Precio Mínimo de Carrera:</label>
+                            <input type="number" id="precioMinimo" name="precioMinimo" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tarifaNoche">Tarifa Nocturna (Multiplicador):</label>
+                            <input type="number" id="tarifaNoche" name="tarifaNoche" step="0.1" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Guardar Precios</button>
+                    </form>
+                </div>
+                <div class="config-section">
+                    <h3>Configuración de Horarios</h3>
+                    <form id="horariosForm" class="config-form">
+                        <div class="form-group">
+                            <label for="horaInicio">Hora de Inicio de Servicio:</label>
+                            <input type="time" id="horaInicio" name="horaInicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="horaFin">Hora de Fin de Servicio:</label>
+                            <input type="time" id="horaFin" name="horaFin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="diasServicio">Días de Servicio:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="diasServicio" value="lunes"> Lunes</label>
+                                <label><input type="checkbox" name="diasServicio" value="martes"> Martes</label>
+                                <label><input type="checkbox" name="diasServicio" value="miercoles"> Miércoles</label>
+                                <label><input type="checkbox" name="diasServicio" value="jueves"> Jueves</label>
+                                <label><input type="checkbox" name="diasServicio" value="viernes"> Viernes</label>
+                                <label><input type="checkbox" name="diasServicio" value="sabado"> Sábado</label>
+                                <label><input type="checkbox" name="diasServicio" value="domingo"> Domingo</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Guardar Horarios</button>
+                    </form>
+                </div>
+                <div class="config-section">
+                    <h3>Configuración de Notificaciones</h3>
+                    <form id="notificacionesForm" class="config-form">
+                        <div class="form-group">
+                            <label for="emailNotificaciones">Email para Notificaciones:</label>
+                            <input type="email" id="emailNotificaciones" name="emailNotificaciones" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefonoNotificaciones">Teléfono para Notificaciones:</label>
+                            <input type="tel" id="telefonoNotificaciones" name="telefonoNotificaciones">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="notificacionesEmail" name="notificacionesEmail">
+                                Recibir notificaciones por email
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="notificacionesSMS" name="notificacionesSMS">
+                                Recibir notificaciones por SMS
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-primary">Guardar Notificaciones</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>
