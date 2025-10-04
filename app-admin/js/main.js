@@ -96,8 +96,8 @@ function setupEventListeners() {
         select.addEventListener('change', handleFilter);
     });
     
-    // Form submissions
-    const forms = document.querySelectorAll('form');
+    // Form submissions (excluding login forms)
+    const forms = document.querySelectorAll('form:not(#adminLoginForm)');
     forms.forEach(form => {
         form.addEventListener('submit', handleFormSubmit);
     });
@@ -315,56 +315,4 @@ function exportarDatos() {
     showNotification('Exportando datos...', 'info');
 }
 
-// Utility functions
-function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    
-    // Style the notification
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 1.5rem;
-        border-radius: 5px;
-        color: white;
-        font-weight: 600;
-        z-index: 1000;
-        animation: slideIn 0.3s ease;
-    `;
-    
-    // Set background color based on type
-    const colors = {
-        success: '#28a745',
-        error: '#dc3545',
-        warning: '#ffc107',
-        info: '#17a2b8'
-    };
-    notification.style.backgroundColor = colors[type] || colors.info;
-    
-    // Add to page
-    document.body.appendChild(notification);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.remove();
-    }, 3000);
-}
-
-// Add CSS animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-`;
-document.head.appendChild(style);
+// Utility functions moved to auth.js to avoid conflicts

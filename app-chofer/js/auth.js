@@ -204,23 +204,25 @@ function addLogoutButton() {
 
 // Initialize authentication on page load
 document.addEventListener('DOMContentLoaded', function() {
-    // Check authentication status
-    if (!validateSession()) {
-        return;
-    }
-    
-    // Add logout button if not on login/register page
+    // Only check authentication on non-login pages
     if (!window.location.pathname.includes('login.html') && 
         !window.location.pathname.includes('registro.html')) {
+        
+        // Check authentication status
+        if (!validateSession()) {
+            return;
+        }
+        
+        // Add logout button
         addLogoutButton();
-    }
-    
-    // Add user info to header
-    const user = getCurrentUser();
-    if (user) {
-        const header = document.querySelector('.chofer-header h1');
-        if (header) {
-            header.innerHTML = `Panel del Chofer - ${user.nombre}`;
+        
+        // Add user info to header
+        const user = getCurrentUser();
+        if (user) {
+            const header = document.querySelector('.chofer-header h1');
+            if (header) {
+                header.innerHTML = `Panel del Chofer - ${user.nombre}`;
+            }
         }
     }
 });
@@ -237,16 +239,21 @@ function resetInactivityTimer() {
     }, 30 * 60 * 1000); // 30 minutes
 }
 
-// Reset timer on user activity
-document.addEventListener('click', resetInactivityTimer);
-document.addEventListener('keypress', resetInactivityTimer);
-document.addEventListener('scroll', resetInactivityTimer);
+// Only initialize timer on authenticated pages
+if (!window.location.pathname.includes('login.html') && 
+    !window.location.pathname.includes('registro.html')) {
+    
+    // Reset timer on user activity
+    document.addEventListener('click', resetInactivityTimer);
+    document.addEventListener('keypress', resetInactivityTimer);
+    document.addEventListener('scroll', resetInactivityTimer);
+    
+    // Initialize timer
+    resetInactivityTimer();
+}
 
-// Initialize timer
-resetInactivityTimer();
-
-// Utility function for notifications
-function showNotification(message, type = 'info') {
+// Global utility function for notifications
+window.showNotification = function(message, type = 'info') {
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
