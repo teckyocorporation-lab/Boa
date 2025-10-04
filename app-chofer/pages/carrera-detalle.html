@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Carrera - Chofer</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="chofer-container">
+        <header class="chofer-header">
+            <h1>Detalle de Carrera</h1>
+            <nav class="chofer-nav">
+                <a href="home.html">Inicio</a>
+                <a href="carreras-disponibles.html">Carreras Disponibles</a>
+                <a href="mis-carreras.html">Mis Carreras</a>
+                <a href="historial.html">Historial</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="notificaciones.html">Notificaciones</a>
+            </nav>
+        </header>
+        <main class="chofer-main">
+            <div class="page-header">
+                <h2 id="carreraTitle">Información de la Carrera</h2>
+                <div class="header-actions">
+                    <button class="btn-secondary" onclick="goBack()">Volver</button>
+                    <button class="btn-primary" id="actionBtn" onclick="handleCarreraAction()">Aceptar Carrera</button>
+                </div>
+            </div>
+            
+            <div class="carrera-detail-grid">
+                <div class="info-card">
+                    <h3>Información del Viaje</h3>
+                    <div class="info-item">
+                        <label>Origen:</label>
+                        <span id="carreraOrigen">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Destino:</label>
+                        <span id="carreraDestino">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Fecha y Hora:</label>
+                        <span id="carreraFecha">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Distancia:</label>
+                        <span id="carreraDistancia">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Duración Estimada:</label>
+                        <span id="carreraDuracion">-</span>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Detalles del Cliente</h3>
+                    <div class="info-item">
+                        <label>Nombre:</label>
+                        <span id="clienteNombre">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Teléfono:</label>
+                        <span id="clienteTelefono">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Calificación del Cliente:</label>
+                        <span id="clienteCalificacion">-</span>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Información Financiera</h3>
+                    <div class="info-item">
+                        <label>Precio Base:</label>
+                        <span id="precioBase">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Comisión:</label>
+                        <span id="comision">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Ganancia Estimada:</label>
+                        <span id="gananciaEstimada" class="highlight">-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-section">
+                <h3>Ubicación</h3>
+                <div id="mapContainer" class="map-container">
+                    <div class="map-placeholder">
+                        <span class="map-icon">🗺️</span>
+                        <p>Mapa de la ruta</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carrera-actions" id="carreraActions">
+                <div class="action-buttons">
+                    <button class="btn-success" onclick="aceptarCarrera()">Aceptar Carrera</button>
+                    <button class="btn-danger" onclick="rechazarCarrera()">Rechazar</button>
+                </div>
+            </div>
+            
+            <div class="carrera-progress" id="carreraProgress" style="display: none;">
+                <h3>Progreso de la Carrera</h3>
+                <div class="progress-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-label">En camino al origen</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Llegada al origen</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Viaje en progreso</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-label">Llegada al destino</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <span class="step-label">Carrera completada</span>
+                    </div>
+                </div>
+                <div class="progress-actions">
+                    <button class="btn-primary" onclick="updateProgress()">Actualizar Progreso</button>
+                    <button class="btn-danger" onclick="cancelarCarrera()">Cancelar Carrera</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>

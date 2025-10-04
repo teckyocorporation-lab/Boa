@@ -1,0 +1,46 @@
+{
+  "name": "sistema-transporte-teckyo",
+  "version": "1.0.0",
+  "description": "Sistema completo de gestión de transporte con aplicaciones separadas para administradores y choferes",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -o",
+    "dev": "http-server -p 8000 -o -c-1",
+    "build": "echo 'No build step required for static HTML'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'"
+  },
+  "keywords": [
+    "transporte",
+    "gestión",
+    "choferes",
+    "carreras",
+    "admin",
+    "sistema",
+    "web",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Teck-Yo Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/proyecto-transporte.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/proyecto-transporte/issues"
+  },
+  "homepage": "https://tu-usuario.github.io/proyecto-transporte",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

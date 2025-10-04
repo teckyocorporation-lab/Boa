@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Chofer</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+<body>
+    <div class="chofer-container">
+        <header class="chofer-header">
+            <h1>Inicio</h1>
+            <nav class="chofer-nav">
+                <a href="home.html" class="active">Inicio</a>
+                <a href="carreras-disponibles.html">Carreras Disponibles</a>
+                <a href="mis-carreras.html">Mis Carreras</a>
+                <a href="historial.html">Historial</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="notificaciones.html">Notificaciones</a>
+            </nav>
+        </header>
+        <main class="chofer-main">
+            <div class="status-card">
+                <h2>Estado Actual</h2>
+                <div class="status-info">
+                    <span class="status-label">Estado:</span>
+                    <span class="status-value" id="choferStatus">Disponible</span>
+                </div>
+                <div class="status-actions">
+                    <button class="btn-primary" id="toggleStatusBtn" onclick="toggleStatus()">Cambiar Estado</button>
+                </div>
+            </div>
+            
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <h3>Carreras Hoy</h3>
+                    <span class="stat-number" id="carrerasHoy">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Ganancias Hoy</h3>
+                    <span class="stat-number" id="gananciasHoy">$0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Calificación</h3>
+                    <span class="stat-number" id="calificacion">-</span>
+                </div>
+            </div>
+            
+            <div class="recent-carreras">
+                <h2>Carreras Recientes</h2>
+                <div id="recentCarrerasList" class="carreras-list">
+                    <!-- Recent carreras will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <h2>Acciones Rápidas</h2>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="navigateTo('carreras-disponibles.html')">
+                        <span class="action-icon">🚗</span>
+                        <span>Ver Carreras Disponibles</span>
+                    </button>
+                    <button class="action-btn" onclick="navigateTo('mis-carreras.html')">
+                        <span class="action-icon">📋</span>
+                        <span>Mis Carreras</span>
+                    </button>
+                    <button class="action-btn" onclick="navigateTo('perfil.html')">
+                        <span class="action-icon">👤</span>
+                        <span>Mi Perfil</span>
+                    </button>
+                    <button class="action-btn" onclick="navigateTo('notificaciones.html')">
+                        <span class="action-icon">🔔</span>
+                        <span>Notificaciones</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../shared/js/utils.js"></script>
+    <script src="../../shared/data/mock-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+</body>
+</html>
